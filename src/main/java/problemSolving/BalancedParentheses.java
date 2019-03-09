@@ -1,8 +1,10 @@
+package problemSolving;
+
 import java.util.Stack;
 
 public class BalancedParentheses {
 
-    private static Stack<Character> charsStack = new Stack<>();
+    private static Stack<Character> charsStack = new Stack<Character>();
     private static final char[][] BRACKETS = {{'[', ']'}, {'(', ')'}, {'{', '}'}};
 
     public static boolean testString(String stringToTest) {

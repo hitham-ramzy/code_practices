@@ -5,8 +5,8 @@ import java.util.Stack;
 
 public class QueueByTwoStacks<T> {
 
-    private Stack<T> firstStack = new Stack<>();
-    private Stack<T> secondStack = new Stack<>();
+    private Stack<T> firstStack = new Stack<T>();
+    private Stack<T> secondStack = new Stack<T>();
 
     public void enqueue(T t) {
         firstStack.push(t);
