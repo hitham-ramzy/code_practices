@@ -4,6 +4,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.List;
+
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
@@ -62,6 +64,23 @@ public class IntBinaryTreeTest {
         binaryTree.insert(5);
         binaryTree.insert(4);
         assertEquals(binaryTree.getLength(), 5);
+    }
+
+    @Test
+    public void getLevelByLevel() {
+        IntBinaryTree binaryTree = new IntBinaryTree();
+        binaryTree.insert(1);
+        binaryTree.insert(2);
+        binaryTree.insert(-1);
+        binaryTree.insert(5);
+        binaryTree.insert(4);
+        List<Integer> integerList = binaryTree.getLevelByLevel();
+        assertEquals(5, integerList.size());
+        assertEquals(1, integerList.get(0).intValue());
+        assertEquals(-1, integerList.get(1).intValue());
+        assertEquals(2, integerList.get(2).intValue());
+        assertEquals(5, integerList.get(3).intValue());
+        assertEquals(4, integerList.get(4).intValue());
     }
 
 
