@@ -25,9 +25,9 @@ public class LinkedList<T> {
         } else {
             Node<T> lastNode = firstNode;
             while (lastNode.hasNext()) {
-                lastNode = lastNode.getNext();
+                lastNode = lastNode.next;
             }
-            lastNode.setNext(new Node<>(nodeData));
+            lastNode.next= new Node<>(nodeData);
         }
         size++;
     }
@@ -42,7 +42,7 @@ public class LinkedList<T> {
         } else {
             Node<T> oldFirstNode = firstNode;
             firstNode = new Node<>(nodeData);
-            firstNode.setNext(oldFirstNode);
+            firstNode.next = oldFirstNode;
         }
         size++;
     }
@@ -58,15 +58,15 @@ public class LinkedList<T> {
 
         Node<T> nodeBeforeDelete = firstNode;
         while (nodeBeforeDelete.hasNext()) {
-            if (nodeBeforeDelete.getNext().getData() != null && nodeBeforeDelete.getNext().getData().equals(nodeData)) {
+            if (nodeBeforeDelete.next.data != null && nodeBeforeDelete.next.data.equals(nodeData)) {
                 break;
             }
-            nodeBeforeDelete = nodeBeforeDelete.getNext();
+            nodeBeforeDelete = nodeBeforeDelete.next;
         }
-        if (nodeBeforeDelete.getNext() == null || !nodeBeforeDelete.getNext().getData().equals(nodeData)) {
+        if (nodeBeforeDelete.next == null || !nodeBeforeDelete.next.data.equals(nodeData)) {
             throw new NoSuchElementException();
         }
-        nodeBeforeDelete.setNext(nodeBeforeDelete.getNext().getNext());
+        nodeBeforeDelete.next = nodeBeforeDelete.next.next;
         size--;
     }
 
@@ -81,37 +81,25 @@ public class LinkedList<T> {
         long loopIndex = 0;
         while (loopIndex < size) {
             if (loopIndex == index) {
-                return resultNode.getData();
+                return resultNode.data;
             }
-            resultNode = resultNode.getNext();
+            resultNode = resultNode.next;
             loopIndex++;
         }
         throw new NoSuchElementException();
     }
-}
 
-class Node<T> {
+    private class Node<T> {
 
-    private T data;
-    private Node<T> next;
+        T data;
+        Node<T> next;
 
-    Node(T data) {
-        this.data = data;
-    }
+        Node(T data) {
+            this.data = data;
+        }
 
-    T getData() {
-        return data;
-    }
-
-    Node<T> getNext() {
-        return next;
-    }
-
-    void setNext(Node<T> next) {
-        this.next = next;
-    }
-
-    boolean hasNext() {
-        return next != null;
+        boolean hasNext() {
+            return next != null;
+        }
     }
 }
