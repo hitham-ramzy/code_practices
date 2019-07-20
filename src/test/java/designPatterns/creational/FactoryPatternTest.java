@@ -8,15 +8,15 @@ import static org.junit.Assert.assertNotNull;
 /**
  * The type Abstract pattern test.
  */
-public class AbstractPatternTest {
+public class FactoryPatternTest {
 
     /**
      * Gets valid instance.
      */
     @Test
     public void getValidInstance() {
-        AbstractPattern.ShapeInterface shape = AbstractPattern.getInstance(AbstractPattern.ShapeType.CIRCLE);
+        FactoryPattern.ShapeInterface shape = FactoryPattern.getInstance(FactoryPattern.ShapeType.CIRCLE);
         assertNotNull(shape);
-        assertEquals(AbstractPattern.ShapeType.CIRCLE.name(), shape.getType());
+        assertEquals(FactoryPattern.ShapeType.CIRCLE.name(), shape.getType());
     }
 }

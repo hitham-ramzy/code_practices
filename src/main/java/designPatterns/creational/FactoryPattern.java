@@ -3,7 +3,7 @@ package designPatterns.creational;
 /**
  * The type Abstract pattern.
  */
-public class AbstractPattern {
+public class FactoryPattern {
 
     /**
      * Gets instance.
