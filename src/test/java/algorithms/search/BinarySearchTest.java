@@ -1,6 +1,6 @@
-package algorithms;
+package algorithms.search;
 
-import algorithm.BinarySearch;
+import algorithm.search.BinarySearch;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

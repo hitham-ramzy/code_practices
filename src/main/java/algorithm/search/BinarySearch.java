@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.search;
 
 /**
  * The type Binary search.
