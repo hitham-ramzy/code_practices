@@ -4,6 +4,9 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
@@ -81,6 +84,70 @@ public class IntBinaryTreeTest {
         assertEquals(2, integerList.get(2).intValue());
         assertEquals(5, integerList.get(3).intValue());
         assertEquals(4, integerList.get(4).intValue());
+    }
+
+    @Test
+    public void printAsInOrder() throws IOException {
+        IntBinaryTree binaryTree = new IntBinaryTree();
+        binaryTree.insert(1);
+        binaryTree.insert(2);
+        binaryTree.insert(-1);
+        binaryTree.insert(5);
+        binaryTree.insert(4);
+        ByteArrayOutputStream bo = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bo));
+        binaryTree.printAsInOrder();
+        bo.flush();
+        String allWrittenLines = new String(bo.toByteArray());
+        assertEquals("-1\n1\n2\n4\n5\n",allWrittenLines);
+    }
+
+    @Test
+    public void printAsPreOrder() throws IOException {
+        IntBinaryTree binaryTree = new IntBinaryTree();
+        binaryTree.insert(1);
+        binaryTree.insert(2);
+        binaryTree.insert(-1);
+        binaryTree.insert(5);
+        binaryTree.insert(4);
+        ByteArrayOutputStream bo = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bo));
+        binaryTree.printAsPreOrder();
+        bo.flush();
+        String allWrittenLines = new String(bo.toByteArray());
+        assertEquals("1\n-1\n2\n5\n4\n",allWrittenLines);
+    }
+
+    @Test
+    public void printAsPostOrder() throws IOException {
+        IntBinaryTree binaryTree = new IntBinaryTree();
+        binaryTree.insert(1);
+        binaryTree.insert(2);
+        binaryTree.insert(-1);
+        binaryTree.insert(5);
+        binaryTree.insert(4);
+        ByteArrayOutputStream bo = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bo));
+        binaryTree.printAsPostOrder();
+        bo.flush();
+        String allWrittenLines = new String(bo.toByteArray());
+        assertEquals("-1\n4\n5\n2\n1\n",allWrittenLines);
+    }
+
+    @Test
+    public void printAtLevel() throws IOException {
+        IntBinaryTree binaryTree = new IntBinaryTree();
+        binaryTree.insert(1);
+        binaryTree.insert(2);
+        binaryTree.insert(-1);
+        binaryTree.insert(5);
+        binaryTree.insert(4);
+        ByteArrayOutputStream bo = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bo));
+        binaryTree.printAtLevel(2);
+        bo.flush();
+        String allWrittenLines = new String(bo.toByteArray());
+        assertEquals("-1\n2\n",allWrittenLines);
     }
 
 

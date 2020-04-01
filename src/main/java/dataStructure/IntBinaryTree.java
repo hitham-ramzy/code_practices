@@ -1,7 +1,9 @@
 package dataStructure;
 
-import java.util.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 /**
  * The type Int binary tree.
@@ -62,7 +64,62 @@ public class IntBinaryTree {
         return list;
     }
 
-    private class Node {
+    public void printAsInOrder() {
+        printAsInOrder(root);
+    }
+
+    private void printAsInOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        printAsInOrder(node.left);
+        System.out.println(node.data);
+        printAsInOrder(node.right);
+    }
+
+    public void printAsPreOrder() {
+        printAsPreOrder(root);
+    }
+
+    private void printAsPreOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        System.out.println(node.data);
+        printAsPreOrder(node.left);
+        printAsPreOrder(node.right);
+    }
+
+    public void printAsPostOrder() {
+        printAsPostOrder(root);
+    }
+
+    private void printAsPostOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        printAsPostOrder(node.left);
+        printAsPostOrder(node.right);
+        System.out.println(node.data);
+    }
+
+    public void printAtLevel(int level) {
+        printAtLevel(root, level);
+    }
+
+    private void printAtLevel(Node node, int level) {
+        if (node == null) {
+            return;
+        }
+        if (level == 1) {
+            System.out.println(node.data);
+            return;
+        }
+        printAtLevel(node.left, level - 1);
+        printAtLevel(node.right, level - 1);
+    }
+
+    private static class Node {
 
         private int data;
         private Node left;
@@ -136,9 +193,7 @@ public class IntBinaryTree {
 
         @Override
         public String toString() {
-            return "Node{" +
-                    "data=" + data +
-                    '}';
+            return "" + data;
         }
     }
 
