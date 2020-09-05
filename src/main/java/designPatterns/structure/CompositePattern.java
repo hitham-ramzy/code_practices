@@ -4,9 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ComposePattern {
-
-
+/**
+ * The type Composite pattern.
+ * <p>
+ * Used where you need to treat a group of objects in similar was as a single object
+ * <p>
+ * Perfect in a tree hierarchy
+ */
+public class CompositePattern {
 
 }
 
@@ -39,11 +44,11 @@ class Employee {
         return subordinates;
     }
 
-    void addEmployee(Employee employee){
+    void addEmployee(Employee employee) {
         subordinates.add(employee);
     }
 
-    void deleteEmployee(Employee employee){
+    void deleteEmployee(Employee employee) {
         subordinates.remove(employee);
     }
 

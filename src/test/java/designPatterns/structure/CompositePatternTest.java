@@ -2,7 +2,7 @@ package designPatterns.structure;
 
 import org.junit.Test;
 
-public class ComposePatternTest {
+public class CompositePatternTest {
 
     @Test
     public void composePatternTest(){

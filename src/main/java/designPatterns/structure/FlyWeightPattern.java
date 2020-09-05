@@ -3,6 +3,11 @@ package designPatterns.structure;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The type Fly weight pattern.
+ * <p>
+ * Used for reduce the number of object created and to decrease the memory foot print
+ */
 public class FlyWeightPattern {
 }
 

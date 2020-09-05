@@ -3,6 +3,11 @@ package designPatterns.structure;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The type Proxy pattern.
+ * <p>
+ * A class that represents the functionality of another class
+ */
 public class ProxyPattern {
 
 }

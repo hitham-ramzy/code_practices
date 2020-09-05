@@ -1,5 +1,10 @@
 package designPatterns.structure;
 
+/**
+ * The type Decorator pattern.
+ *
+ * Used when you need to add a new functionality to an existing object without altering its structure
+ */
 public class DecoratorPattern {
 }
 
