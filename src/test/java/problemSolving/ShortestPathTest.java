@@ -21,4 +21,21 @@ public class ShortestPathTest {
 
         assertEquals(11, ShortestPath.find(nodes, costs, 'A', 'H'));
     }
+
+    @Test
+    public void findShortestPath2() {
+        char[] nodes = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
+        int[][] costs = {
+                {0, -1, -1, 6, -1, 6, -1, -1},
+                {-1, 0, 6, 6, -1, -1, -1, -1},
+                {-1, 6, 0, -1, -1, -1, -1, -1},
+                {6, 6, -1, 0, 6, -1, -1, -1},
+                {-1, -1, -1, 6, 0, 6, 6, -1},
+                {6, -1, -1, -1, 6, 0, -1, -1},
+                {-1, -1, -1, -1, 6, -1, 0, -1},
+                {-1, -1, -1, -1, -1, -1, -1, 0}
+        };
+
+        assertEquals(18, ShortestPath.find(nodes, costs, 'B', 'G'));
+    }
 }

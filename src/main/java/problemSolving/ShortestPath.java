@@ -28,7 +28,7 @@ public class ShortestPath {
     /**
      * The Visited nodes result.
      */
-    static List visitedNodesResult = null;
+    static List<Character> visitedNodesResult = null;
 
     private static int find(char[] nodes, int[][] costs, char currentNode, char targetNode, Integer currentCost, List<Character> visitedNodes) {
         visitedNodes.add(currentNode);
