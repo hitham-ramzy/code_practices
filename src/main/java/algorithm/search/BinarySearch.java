@@ -16,10 +16,11 @@ public class BinarySearch {
         if (array == null) {
             return null;
         }
-        return search(array, 0, array.length - 1, item);
+//        return searchRecursive(array, 0, array.length - 1, item);
+        return searchByIteration(array, item);
     }
 
-    private static Integer search(int[] array, int start, int end, int item) {
+    private static Integer searchRecursive(int[] array, int start, int end, int item) {
         if (array.length == 0 || item < array[0] || item > array[array.length - 1]) {
             return null;
         }
@@ -28,9 +29,26 @@ public class BinarySearch {
         if (midItem.equals(item)) {
             return midIndex;
         } else if (midItem > item) {
-            return search(array, start, midIndex, item);
+            return searchRecursive(array, start, midIndex, item);
         } else if (midIndex < item) {
-            return search(array, midIndex + 1, end, item);
+            return searchRecursive(array, midIndex + 1, end, item);
+        }
+        return null;
+    }
+
+    private static Integer searchByIteration(int[] array, int item) {
+        int startIndex = 0;
+        int endIndex = array.length - 1;
+        while (startIndex <= endIndex) {
+            int midIndex = startIndex + ((endIndex - startIndex) / 2);
+            int mindValue = array[midIndex];
+            if (item == mindValue) {
+                return midIndex;
+            } else if (item < mindValue) {
+                endIndex = midIndex - 1;
+            } else {
+                startIndex = midIndex + 1;
+            }
         }
         return null;
     }
