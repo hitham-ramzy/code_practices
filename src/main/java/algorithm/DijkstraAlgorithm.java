@@ -10,27 +10,27 @@ public class DijkstraAlgorithm {
 
         int currentIndex = indexOfStartNode;
         int currentNodeCost = 0;
-        for (int i = 0; i < nodes.length; i++) {
-            for (int j = 0; j < nodes.length; j++) {
-                if (currentIndex == j || isUsedBefore(nodes[j], usedIndexes)) {
-                    shortPathMatrix[i][j] = 0;
-                } else if (i == nodes.length - 1 && shortPathMatrix[i - 1][j] != 0) {
-                    shortPathMatrix[i][j] = shortPathMatrix[i - 1][j];
+        for (int row = 0; row < nodes.length; row++) {
+            for (int column = 0; column < nodes.length; column++) {
+                if (currentIndex == column || isUsedBefore(nodes[column], usedIndexes)) {
+                    shortPathMatrix[row][column] = 0;
+                } else if (row == nodes.length - 1 && shortPathMatrix[row - 1][column] != 0) {
+                    shortPathMatrix[row][column] = shortPathMatrix[row - 1][column];
                 } else {
-                    int stepCost = costs[currentIndex][j] != -1 ? costs[currentIndex][j] : Integer.MAX_VALUE;
+                    int stepCost = costs[currentIndex][column] != -1 ? costs[currentIndex][column] : Integer.MAX_VALUE;
                     stepCost = stepCost == Integer.MAX_VALUE ? stepCost : stepCost + currentNodeCost;
 
-                    int previousCost = i == 0 || shortPathMatrix[i - 1][j] == -1 ? Integer.MAX_VALUE : shortPathMatrix[i - 1][j];
+                    int previousCost = row == 0 || shortPathMatrix[row - 1][column] == -1 ? Integer.MAX_VALUE : shortPathMatrix[row - 1][column];
 
                     int minimumStepCost = Math.min(stepCost, previousCost);
                     minimumStepCost = minimumStepCost == Integer.MAX_VALUE ? -1 : minimumStepCost;
-                    shortPathMatrix[i][j] = minimumStepCost;
+                    shortPathMatrix[row][column] = minimumStepCost;
                 }
             }
-            usedIndexes[i] = nodes[currentIndex];
-            if (i != nodes.length - 1) {
-                currentIndex = getSmallestIndex(shortPathMatrix[i]);
-                currentNodeCost = shortPathMatrix[i][currentIndex];
+            usedIndexes[row] = nodes[currentIndex];
+            if (row != nodes.length - 1) {
+                currentIndex = getSmallestIndex(shortPathMatrix[row]);
+                currentNodeCost = shortPathMatrix[row][currentIndex];
             }
 //            drawMatrix(shortPathMatrix);
         }
