@@ -12,8 +12,12 @@ public class MinHeap {
         return childIndex % 2 == 1 ? childIndex / 2 : childIndex / 2 - 1;
     }
 
-    private static int getParentValue(int childIndex) {
-        return data[getParentIndex(childIndex)];
+    private static Integer getParentValue(int childIndex) {
+        int parentIndex = getParentIndex(childIndex);
+        if (parentIndex < 0) {
+            return null;
+        }
+        return data[parentIndex];
     }
 
     private static int getLeftChildIndex(int parentIndex) {
@@ -71,12 +75,11 @@ public class MinHeap {
         while (index > 0) {
             int parentIndex = getParentIndex(index);
             Integer parentValue = getParentValue(index);
-            if (data[index] < parentValue) {
-                swap(index, parentIndex);
-                index = parentIndex;
-            } else {
+            if (parentValue == null || data[index] >= parentValue) {
                 return;
             }
+            swap(index, parentIndex);
+            index = parentIndex;
         }
     }
 
