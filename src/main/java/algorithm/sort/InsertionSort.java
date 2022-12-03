@@ -1,30 +1,33 @@
 package algorithm.sort;
 
+/**
+ * The type Insertion sort.
+ * Depends on holding a number (arr[currentIndexToSort]) and compare it with all previous numbers,
+ * and swap numbers if this number is less than anyone of them and proceed till the first of the array
+ */
 public class InsertionSort {
 
+    /**
+     * Sort int [ ].
+     *
+     * @param arr the arr to be sorted
+     * @return the int [ ] sorted array
+     */
     public static int[] sort(int[] arr) {
         if (arr == null) {
             return null;
         }
-        // loop on array 0->arr.length-1
         for (int i = 1; i < arr.length; i++) {
-            int sortingLength, index;
-            sortingLength = index = i;
-            // while sortLength is not equals zero
-            while (sortingLength >= 0) {
-                // if arr[index]< arr[sortingLength]
-                if (arr[index] < arr[sortingLength]) {
-                    // swap & index --;
-                    swap(arr, index, sortingLength);
-                    index--;
+            int index = i; //  1
+            int currentIndexToSort = i; // 1
+            while (index >= 0) {
+                if (arr[currentIndexToSort] < arr[index]) {
+                    swap(arr, currentIndexToSort, index);
+                    currentIndexToSort--;
                 }
-                // end if
-                // sortingLength--;
-                sortingLength--;
+                index--;
             }
-            // end while
         }
-        // end loop
         return arr;
     }
 
