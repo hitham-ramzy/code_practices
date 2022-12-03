@@ -2,6 +2,11 @@ package dataStructure;
 
 import java.util.Arrays;
 
+/**
+ * The type Max heap.
+ * Usually used in sorting items
+ * Java has the PriorityQueue as an implementation of the heaps
+ */
 public class MaxHeap {
 
     private static final int INITIAL_CAPACITY = 20;

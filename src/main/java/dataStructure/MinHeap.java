@@ -2,6 +2,11 @@ package dataStructure;
 
 import java.util.Arrays;
 
+/**
+ * The type Min heap.
+ * Usually used in sorting items
+ * Java has the PriorityQueue as an implementation of the heaps
+ */
 public class MinHeap {
     private static final int INITIAL_ARRAY_CAPACITY = 20;
     private static int size = 0;

@@ -1,5 +1,9 @@
 package algorithm.sort;
 
+/**
+ * The type Merge sort.
+ * Split the array into smaller arrays
+ */
 public class MergeSort {
 
     public static int[] sort(int[] arr) {
@@ -35,12 +39,12 @@ public class MergeSort {
         int rightStart = start + ((end - start) / 2) + 1;
         int indexRight = rightStart;
 
-        for (int i = start; i <= end; i++) {
+        for (int currentIndex = start; currentIndex <= end; currentIndex++) {
             if (indexRight > end || (indexLeft < rightStart && arr[indexLeft] < arr[indexRight])) {
-                mergedArray[i] = arr[indexLeft];
+                mergedArray[currentIndex] = arr[indexLeft];
                 indexLeft++;
             } else {
-                mergedArray[i] = arr[indexRight];
+                mergedArray[currentIndex] = arr[indexRight];
                 indexRight++;
             }
         }

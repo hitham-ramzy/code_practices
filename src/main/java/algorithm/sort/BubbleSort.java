@@ -2,6 +2,9 @@ package algorithm.sort;
 
 /**
  * The type Bubble sort.
+ * compare each item to the previous one and swap them if needed
+ * and Repeat the action till you make sure all are sorted
+ * There is a small enhancement here in defining the "sortTo" variable to set the limit of the loop as the last index already sorted in the previous stpes
  */
 public class BubbleSort {
 
